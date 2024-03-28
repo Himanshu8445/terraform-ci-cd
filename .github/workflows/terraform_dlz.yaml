@@ -15,10 +15,10 @@ jobs:
   terraform:
     name: 'DLZ_Deployment'
     env:
-      CLIENT_ID: ${{ secrets.TF_VAR_APPLICATION_ID }}
-      CLIENT_SECRET: ${{ secrets.TF_VAR_SP_SECRET }}
-      SUBSCRIPTION_ID: ${{ secrets.TF_VAR_SUBSCRIPTION_ID }}
-      TENANT_ID: ${{ secrets.TF_VAR_TENANT_ID }}
+      ARM_CLIENT_ID: ${{ secrets.TF_VAR_APPLICATION_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.TF_VAR_SP_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.TF_VAR_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.TF_VAR_TENANT_ID }}
     runs-on: ubuntu-latest
 ## Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
