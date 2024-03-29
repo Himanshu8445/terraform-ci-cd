@@ -19,8 +19,8 @@ jobs:
   terraform:
     name: 'DEV_DLZ_Deployment'
     runs-on: ubuntu-latest
-    with:
-      github-environment: dev
+    environment: 
+      name: dev
     secrets:
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
