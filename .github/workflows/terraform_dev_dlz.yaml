@@ -27,11 +27,6 @@ jobs:
       run:
         working-directory: ./landingzone-dev
         shell: bash
-    secrets:
-      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
     steps:
 # Checkout the repository to the GitHub Actions runner
     - name: Checkout
@@ -42,6 +37,10 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with: 
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 # https://github.com/actions/setup-node 
     - uses: actions/setup-node@v2
       with:
