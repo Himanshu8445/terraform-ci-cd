@@ -31,10 +31,19 @@ jobs:
     - name: Log into Azure (via OIDC)
       uses: azure/login@v1
       with:
-        client-id: ${{ secrets.TF_VAR_APPLICATION_ID }}
-        tenant-id: ${{ vars.TF_VAR_TENANT_ID }}
-        subscription-id: ${{ vars.TF_VAR_SUBSCRIPTION_ID }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ vars.AZURE_TENANT_ID }}
+        subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
         enable-AzPSSession: true
+
+# Set context
+    - name: "Get working Az Context with PowerShell action"
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Set-AzContext "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+        azPSVersion: "latest"
+
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
