@@ -19,8 +19,13 @@ jobs:
   terraform:
     name: 'DEV_DLZ_Deployment'
     runs-on: ubuntu-latest
-    environment:
-      name: dev
+    with:
+      github-environment: dev
+    secrets:
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 ## Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
@@ -30,23 +35,6 @@ jobs:
 # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
-
-# Login to Azure
-    - name: Log into Azure (via OIDC)
-      uses: azure/login@v1
-      with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        enable-AzPSSession: true
-
-# Set context
-    - name: "Get working Az Context with PowerShell action"
-      uses: azure/powershell@v1
-      with:
-        inlineScript: |
-          Set-AzContext "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
-        azPSVersion: "latest"
 
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
