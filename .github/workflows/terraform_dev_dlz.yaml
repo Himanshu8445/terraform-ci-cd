@@ -10,6 +10,17 @@ on:
     paths:
     - 'landingzone-dev/**'
     - ".github/workflows/terraform_dlz.yaml"
+  workflow_call:
+    secrets: 
+      AZURE_CLIENT_ID:
+        required: true
+        description: "Specifies the client ID."
+      AZURE_SUBSCRIPTION_ID:
+        required: true
+        description: "Specifies the subscription id of the deployment."
+      AZURE_TENANT_ID:
+        required: true
+        description: "Specifies the tenant id of the deployment."
 
 permissions:
   id-token: write
