@@ -27,13 +27,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-# Use Dev environment secrets
-    - name: Secrets from Dev environment
-      env:
-        ARM_CLIENT_ID: ${{ secrets.TF_VAR_APPLICATION_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.TF_VAR_SP_SECRET }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.TF_VAR_SUBSCRIPTION_ID }}
-        ARM_TENANT_ID: ${{ secrets.TF_VAR_TENANT_ID }}
+# Login to Azure
+    - name: Log into Azure (via ODIC)
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.TF_VAR_APPLICATION_ID }}
+          tenant-id: ${{ vars.TF_VAR_TENANT_ID }}
+          subscription-id: ${{ vars.TF_VAR_SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
