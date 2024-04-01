@@ -36,12 +36,12 @@ jobs:
     - name: Login to Azure
       uses: azure/login@v2
       with:
-        auth-type: SERVICE_PRINCIPAL
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        #ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        enable-AzPSSession: true
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        # client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        # #ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+        # subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        # tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        # enable-AzPSSession: true
 
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
