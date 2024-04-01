@@ -11,9 +11,9 @@ on:
     - 'landingzone-dev/**'
     - ".github/workflows/terraform_dlz.yaml"
 
-# permissions:
-#   id-token: write
-#   contents: read
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   terraform:
@@ -32,21 +32,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-# # Login to Azure 
-#     - name: Login to Azure
-#       uses: azure/login@v2
-#       with:
-#         client-id: ${{ secrets.AZURE_CLIENT_ID }}
-#         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-#         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-#         enable-AzPSSession: true
-
-# Login to Azure #
-
-    - name: Azure Login
-      run: |
-        az cloud set --name AzureCloud && az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
-        az account show
+# Login to Azure 
+    - name: Login to Azure
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        enable-AzPSSession: true
 
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
