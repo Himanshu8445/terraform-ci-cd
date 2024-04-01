@@ -34,7 +34,7 @@ jobs:
 
 # Login to Azure 
     - name: Login to Azure
-      uses: azure/login@v2
+      uses: azure/login@v1
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
