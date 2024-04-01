@@ -11,9 +11,9 @@ on:
     - 'landingzone-dev/**'
     - ".github/workflows/terraform_dlz.yaml"
 
-# permissions:
-#   id-token: write
-#   contents: read
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   terraform:
