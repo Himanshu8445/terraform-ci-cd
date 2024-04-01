@@ -45,7 +45,7 @@ jobs:
 
 # Login to Azure
     - name: Login to Azure
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         #ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
