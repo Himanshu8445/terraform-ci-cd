@@ -54,8 +54,7 @@ jobs:
     - name: Terraform Init
       run: |
         az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }} 
-        cd ./landingzone-dev
-        terraform init
+        cd ./landingzone-dev && terraform init
 # Formatting of tf files
     - name: Terraform Fmt
       run: terraform fmt      
