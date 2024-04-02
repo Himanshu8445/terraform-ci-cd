@@ -4,7 +4,7 @@ terraform {
     storage_account_name = "strtfstateeusbs001"
     container_name       = "tfstate-container"
     key                  = "dlz.tfstate"
-    use_oidc             = true
+    #use_oidc             = true
   }
 
   required_providers {
