@@ -44,7 +44,7 @@ jobs:
 # Login
     - name: Login to Azure
       uses: azure/CLI@v1
-       with:
+      with:
         azcliversion: latest
         inlineScript: |
           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
