@@ -41,6 +41,14 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         enable-AzPSSession: true
 
+# Set subscription context 
+    - name: "Get working Az Context with PowerShell action"
+      uses: azure/powershell@v1
+      with:
+        inlineScript: |
+          Set-AzContext "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+        azPSVersion: "latest"
+
 # # Login
 #     - name: Login to Azure
 #       uses: azure/CLI@v1
