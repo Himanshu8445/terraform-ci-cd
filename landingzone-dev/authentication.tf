@@ -4,7 +4,6 @@ terraform {
     storage_account_name = "strtfstateeusbs001"
     container_name       = "tfstate-container"
     key                  = "dlz.tfstate"
-    #use_oidc             = true
   }
 
   required_providers {
@@ -17,4 +16,5 @@ terraform {
 #####Configure the Azure Provider
 provider "azurerm" {
   features {}
+  use_oidc = true
 }
