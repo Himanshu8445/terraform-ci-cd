@@ -6,6 +6,13 @@ resource_groups = {
     tags = {
       iac = "Terraform"
     }
+  },
+  rg_2 = {
+    name     = "rg-dlz-eus-002"
+    location = "eastus"
+    tags = {
+      iac = "Terraform"
+    }
   }
 }
 
