@@ -11,10 +11,6 @@ on:
     - 'landingzone-dev/**'
     - ".github/workflows/terraform_dev_dlz.yaml"
 
-# permissions:
-#   id-token: write
-#   contents: read
-
 jobs:
   terraform:
     name: 'DEV_DLZ_Deployment'
@@ -36,31 +32,6 @@ jobs:
 # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
-
-# Login to Azure 
-    # - name: Login to Azure (OIDC)
-    #   uses: azure/login@v1
-    #   with:
-    #     client-id: ${{ secrets.AZURE_CLIENT_ID }}
-    #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-    #     enable-AzPSSession: true
-
-# # Set subscription context 
-#     - name: "Get working Az Context with PowerShell action"
-#       uses: azure/powershell@v1
-#       with:
-#         inlineScript: |
-#           Set-AzContext "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
-#         azPSVersion: "latest"
-
-# # Login #
-#     - name: Login to Azure
-#       uses: azure/CLI@v1
-#       with:
-#         azcliversion: latest
-#         inlineScript: |
-#           az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
 
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
