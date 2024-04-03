@@ -3,7 +3,7 @@ terraform {
     resource_group_name  = "rg-tfstate-eus-01"
     storage_account_name = "strtfstateeusbs001"
     container_name       = "tfstate-container"
-    key                  = "dlz.tfstate"
+    key                  = "dlz-test.tfstate"
   }
 
   required_providers {
@@ -16,4 +16,5 @@ terraform {
 #####Configure the Azure Provider
 provider "azurerm" {
   features {}
+
 }
