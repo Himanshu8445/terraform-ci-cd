@@ -1,34 +1,38 @@
-name: 'Data Landing Zone'
+name: 'Dev Data Landing Zone'
  
 on:
   push:
     branches: [ main ]
     paths:
-    - 'landingzone/**'
-    - ".github/workflows/terraform_dlz.yaml"
+    - 'landingzone-dev/**'
+    - ".github/workflows/terraform_dev_dlz.yaml"
   pull_request:
     paths:
-    - 'landingzone/**'
-    - ".github/workflows/terraform_dlz.yaml"
+    - 'landingzone-dev/**'
+    - ".github/workflows/terraform_dev_dlz.yaml"
 
 jobs:
   terraform:
-    name: 'DLZ_Deployment'
-    env:
-      ARM_CLIENT_ID: ${{ secrets.TF_VAR_APPLICATION_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.TF_VAR_SP_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.TF_VAR_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.TF_VAR_TENANT_ID }}
+    name: 'DEV_DLZ_Deployment'
     runs-on: ubuntu-latest
+    env:
+      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+    environment: 
+      name: dev
+
 ## Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
-        working-directory: ./landingzone
+        working-directory: ./landingzone-dev
         shell: bash
     steps:
 # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
+
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
