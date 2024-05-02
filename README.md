@@ -55,3 +55,4 @@ Consider a case that there is a need to deploy resource group in "landingzone-de
 
 ## Reference Architecture
 
+https://github.com/Himanshu8445/terraform-ci-cd/blob/main/Reference%20Architecture/Reference_Architecture.vsdx
