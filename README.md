@@ -11,6 +11,21 @@ This pipeline is designed to automate the process of deploying infrastructure us
 3. **Plan:** It creates Terraform plan for respective environment, whenever any pull request is raised.
 4. **Apply:** Terraform apply will run when pull request is merged to "main" branch.
 
+## Directory
+
+1. **.github/workflows:** Contains GitHub actions workflows for automating deployment tasks. It has yaml file for Dev, Test, Prod & management zone.
+2. **modules:** It has terraform modules used across environments.
+3. **managementzone:** It has configuration files to deploy management zone. 
+4. **landingzone-dev:** It has configuration files to deploy DEV environment landing zone.
+5. **landingzone-test:** It has configuration files to deploy TEST environment landing zone.
+6. **landingzone-prod:** It has configuration files to deploy PROD environment landing zone.
+
+**Note** - You can call Terraform modules in respective environment. There is one resource group module already called, you can follow same process to call other modules too.
+
+## GitHub Environment
+
+
+
 ### Prerequisites
  
 - An Azure account with the necessary permissions to create resources.
