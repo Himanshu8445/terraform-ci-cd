@@ -55,4 +55,3 @@ Consider a case that there is a need to deploy resource group in "landingzone-de
 
 ## Reference Architecture
 
-
