@@ -5,6 +5,13 @@ resource_groups = {
     tags = {
       iac = "Terraform"
     }
+  },
+  rg_runner_1 = {
+    name     = "rg-dmz-eus-002"
+    location = "eastus"
+    tags = {
+      iac = "Terraform"
+    }
   }
 }
 
