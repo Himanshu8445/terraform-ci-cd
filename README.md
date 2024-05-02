@@ -52,3 +52,7 @@ Consider a case that there is a need to deploy resource group in "landingzone-de
 **Amit Srivastav** - amit.srivastav@microsoft.com
 **Tavish Malhotra** - tavish.malhotra@microsoft.com
 **Himanshu Sharma** - himshar@microsoft.com
+
+## Reference Architecture
+
+
