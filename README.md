@@ -25,6 +25,7 @@ This pipeline is designed to automate the process of deploying infrastructure us
 ## GitHub Environment
 
 - Deployment to each environment is getting controlled by GitHub environments. Each GitHub environment has SPN ID, SPN secret, Subscription ID & Tenant ID.
+  ![image](https://github.com/Himanshu8445/terraform-ci-cd/assets/107118596/72441774-61ac-444d-9cec-49f44444b1b2)
 
 ### Prerequisites
 
