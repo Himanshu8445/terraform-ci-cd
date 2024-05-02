@@ -4,7 +4,7 @@ This repository contains the code for setting up management and landing zone usi
 
 ## Overview
 
-This pipeline is designed to automate the process of deploying infrastructure using Terraform. The pipeline is triggered on every push to the repository, and it performs the following steps:
+This pipeline is designed to automate the process of deploying infrastructure using Terraform. The pipeline is designed to trigger below operations:
  
 1. **Setup:** It sets up the necessary environment for running Terraform commands.
 2. **Validation:** It validates the syntax of the Terraform files.
@@ -24,11 +24,12 @@ This pipeline is designed to automate the process of deploying infrastructure us
 
 ## GitHub Environment
 
-
+- Deployment to each environment is getting controlled by GitHub environments. Each GitHub environment has SPN ID, SPN secret, Subscription ID & Tenant ID.
 
 ### Prerequisites
- 
-- An Azure account with the necessary permissions to create resources.
+
+- An Azure subscription 
+- Service principal with the necessary permissions to create resources.
 - A GitHub account.
 
 ## Running Terraform plan
@@ -47,5 +48,6 @@ Consider a case that there is a need to deploy resource group in "landingzone-de
 
 ## Authors
 
-**Himanshu Sharma** - himshar@microsoft.com
+**Amit Srivastav** - amit.srivastav@microsoft.com
 **Tavish Malhotra** - tavish.malhotra@microsoft.com
+**Himanshu Sharma** - himshar@microsoft.com
