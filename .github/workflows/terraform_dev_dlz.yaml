@@ -31,7 +31,7 @@ jobs:
     steps:
 # Checkout the repository to the GitHub Actions runner
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
 # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
@@ -39,9 +39,14 @@ jobs:
       with: 
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 # https://github.com/actions/setup-node 
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: '18'
+# Insatll Node
+    -  name: Install Node
+       uses: actions/setup-node@v3
+       with:          
+          node-version: '18'
 # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
