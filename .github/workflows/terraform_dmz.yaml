@@ -48,8 +48,8 @@ jobs:
       run: terraform fmt      
 # Generates an execution plan for Terraform
     - name: Terraform Plan
-      if: github.event_name == 'pull_request'
-      run: terraform plan -no-color
+      if: github.event_name == 'pull_request' || github.event_name == 'push'
+      run: terraform plan -no-color -out=plan.out
 # On push to main, build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
