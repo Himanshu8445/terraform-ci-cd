@@ -1,4 +1,4 @@
-## RESOURCE GROUPS
+## RESOURCE GROUPS ##
 resource_groups = {
   rg_1 = {
     name     = "rg-dlz-test-eus-001"
